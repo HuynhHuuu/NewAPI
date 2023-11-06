@@ -1,0 +1,17 @@
+Document MongoDB
+Lời của anh Lộc - Nhớ .then .catch!!!!
+
+save() - thêm một item mới
+findOneAndUpdate(filter,data) - Tìm theo filter và cập nhật
+find()- Dùng để get all item có trong database
+FindbyID - Tìm document bằng 1 thuộc tính ObjectId
+FindOne - Tìm một document bằng 1 thuộc tính 
+FindbyIdAndUpdate(_id,data) - Tìm theo ObjectID và cập nhật nó
+DropCollection - Xóa cả Collection // Khác với dropDatabase
+findOneAndReplace(filter,data) - Tìm theo thuộc tính filter và xóa thuộc tính data có trong đó
+FindOneAndDelete - Tìm theo thuộc tính và xóa toàn bộ data đó
+FindByIdAndDelete - Tìm theo Objectid(_id) và xóa toàn bộ data đó
+FindByIdAndReplace - Tìm theo Objectid(_id) và xóa thuộc tính data có trong đó
+dropDatabase() - Drop cả 1 database
+createCollection - Tạo 1 collection mới
+...
