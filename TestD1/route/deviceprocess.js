@@ -1,13 +1,30 @@
 const MD = require("../models/item_model")
 
+
+const getAll =()=>{
+    return new Promise(async(res, rej) => {
+        try {
+            await MD.Device.find({})
+            .then((data)=>{
+                console.log(data)
+                res({status:true, data:data})
+            })
+            .catch((err)=>{
+                rej({status:false})
+            })
+        } catch (error) {
+            rej({status:false,mes:"ERR"})
+        }
+    })
+}
 const addDevice =(data)=>{
     return new Promise(async(res,rej)=>{
             try {
                 let device = new MD.Device(data)
                 device.save()
                 
-                .then((data)=>{
-                    console.log(data)
+                .then((hello)=>{
+                    console.log(hello)
                     res({status:true})
                 })
 
@@ -61,26 +78,27 @@ const deleteDevice=(id)=>{
     })
 }
 
-const replaceinData=(id,data)=>{
-    return new Promise(async(res,rej)=>{
-        try {
-            await MD.Device.findOneAndReplace({deviceid:id},MD.Device.data)
-            .then((data)=>{
-                console.log(data)
-                res({status:true,mes:"Successful"})
-            })
-            .catch((err)=>{
-                rej({status:false})
-            })
-        } catch (error) {
-            rej({status:false, mes:"ERR"})
-        }
-    })
-}
+// const replaceinData=(id)=>{
+//     return new Promise(async(res,rej)=>{
+//         try {
+//             await MD.Device.findOneAndReplace({deviceid:id})
+//             .then((data)=>{
+//                 console.log(data)
+//                 res({status:true,mes:"Successful"})
+//             })
+//             .catch((err)=>{
+//                 rej({status:false})
+//             })
+//         } catch (error) {
+//             rej({status:false, mes:"ERR"})
+//         }
+//     })
+// }
 
 module.exports ={
     addDevice,
     updateAtId,
     deleteDevice,
-    replaceinData
+   // replaceinData,
+    getAll
 }

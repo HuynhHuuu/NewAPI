@@ -1,8 +1,9 @@
 const router = require("express").Router()
 const deviceprocess = require("./deviceprocess")
 
-router.get("/", async (req, res) => {
-    res.status(200).json({ status: true, project:"device"})
+router.post("/", async (req, res) => {
+    const device = await deviceprocess.getAll()
+    res.status(200).json(device)
 })
 
 router.post("/addDevice", async (req, res) => {
@@ -25,10 +26,12 @@ router.delete("/delete",async(req,res)=>{
     res.status(200).json(device)
 })
 
-router.put("/rep",async(req,res)=>{
-    const device = await deviceprocess.replaceinData(req.body.id,req.body.data)
-    res.status(200).json(device)
-})
+// router.put("/rep",async(req,res)=>{
+//     const device = await deviceprocess.replaceinData(req.body.id)
+//     res.status(200).json(device)
+// })
+
+
 
 
 module.exports = router;

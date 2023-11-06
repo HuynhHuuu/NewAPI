@@ -1,10 +1,10 @@
 const MD = require("../models/item_model")
 
-const auth =(user)=>{
+const auth =(data)=>{
     return new Promise(async(res,rej)=>{
             try {
                
-                var u = await MD.Register.findOne({user:user})
+                var u = await MD.Register.findOne({user:data})
                 res({status:true, data:u})
                 
             } catch (error) {

@@ -26,7 +26,8 @@ const deviceSchema = new mongoose.Schema(
     {
         deviceid:{
             type: String,
-            require: (true, " Please insert a name")
+            require: (true, " Please insert a name"),
+            
         },
         name:{
             type: String,
@@ -49,7 +50,8 @@ const deviceSchema = new mongoose.Schema(
 
 const Register = mongoose.model('Register',registerSchema);
 const Device = mongoose.model('Device',deviceSchema);
-mongoose.connect('mongodb+srv://huuhuynh:huu123@cluster0.jkueaoi.mongodb.net/DAT_Database?retryWrites=true&w=majority')
+//mongoose.connect('mongodb+srv://huuhuynh:huu123@cluster0.jkueaoi.mongodb.net/DAT_Database?retryWrites=true&w=majority')
+mongoose.connect('mongodb://loctp:abc123@164.70.98.231:27017/admin')
 .then(()=>{
     console.log("MD connected")
 }).catch((error)=>{
