@@ -6,7 +6,6 @@ const getAll =()=>{
         try {
             await MD.Device.find({})
             .then((data)=>{
-                console.log(data)
                 res({status:true, data:data})
             })
             .catch((err)=>{
@@ -17,33 +16,28 @@ const getAll =()=>{
         }
     })
 }
-const addDevice =(data)=>{
+const addDevice =(id,name,des,status)=>{
     return new Promise(async(res,rej)=>{
             try {
-                let device = new MD.Device(data)
+                let device = new MD.Device({deviceid:id,name:name,des:des,status:status})
                 device.save()
-                
-                .then((hello)=>{
-                    console.log(hello)
+                .then((data)=>{
                     res({status:true})
                 })
-
                 .catch((err)=>{
                     rej({status:false,mes:"DB ERR"})
                 })
-                
             } catch (error) {
                 rej({status:false, mes:"err"})
             }
     }) 
 }
 
-const updateAtId=(id,data)=>{
+const updateAtId=(id,name,des,status)=>{
     return new Promise(async(res,rej)=>{
         try {
-            await MD.Device.findOneAndUpdate({deviceid:id},data)
+            await MD.Device.findOneAndUpdate({deviceid:id},{name:name,des:des,status:status})
             .then((data)=>{
-                console.log(data)
                 if(data == null){
                     res({status:false, mes:"ID not found"})
                 }else{

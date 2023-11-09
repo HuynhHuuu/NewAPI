@@ -9,7 +9,7 @@ app.use(express.json()) // Cấu hình express kiểu JSON
 app.use(express.urlencoded({extended:true})) // Cấu hình express urlencoded
 app.use(cors({
     credentials:true,
-    origin:['http://172.16.0.103']
+    origin:['http://172.16.0.169:81']
 }))
 
 
